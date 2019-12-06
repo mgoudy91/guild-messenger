@@ -1,6 +1,6 @@
 import React from "react";
 import "./App.css";
-import { Message } from "./components/Message.tsx";
+import { UserContext } from "./components/UserContext";
 
 function App() {
   return (
@@ -9,7 +9,8 @@ function App() {
         <p>Guild messenger</p>
         <p>by Mitch</p>
       </header>
-      <Message/>
+      <UserContext/>
+      <UserContext/>
     </div>
   );
 }
