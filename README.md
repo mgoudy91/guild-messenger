@@ -10,6 +10,8 @@
 - Material UI : layout / input components that look great out of the box with little styling, and still offer deep customization
 
 ## Improvements-to-make
+- Split my react components into a container/component heirarchy
+- Come up with some tests for my react components.
 - I ended up not using typescript as much as I'd like, I think there's a good amount of type safety that would improve future development. A lot of `any` types, which are sometimes worse than no type at all
 - While I tried to use a redux implementation, I did end up with some classes plain-react pitfalls with some prop-drilling that I'd probably refactor if I were doing this again.
 - The typing indicator isn't quite right in terms of when it stops showing
