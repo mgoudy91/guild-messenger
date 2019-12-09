@@ -33,8 +33,4 @@ function mapStateToProps(state: any) {
   return { messages: state.messageReducer.messages };
 }
 
-const mapDispatchToProps = {
-  // sendMessage
-};
-
 export default connect(mapStateToProps)(MessageList);

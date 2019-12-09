@@ -1,9 +1,7 @@
 import React from "react";
 import { connect } from "react-redux";
-
 import MessageList from "./MessageList";
 import { Message } from "./Message";
-
 import { Input } from "@material-ui/core";
 import {
   sendMessage,
@@ -37,23 +35,25 @@ class MessengerContainer extends React.Component<Props, State> {
 
     // Not quite correct. As coded it will wait 1 second after first keystroke, instead of
     // the last. This would need a smarter timing system.
-    if (!this.props.presence[userName].isTyping) {
+    if (!presence[userName].isTyping) {
       setTimeout(() => {
         stopTyping(userName);
       }, 1000);
     }
 
-    startTyping(this.props.userName);
+    startTyping(userName);
   };
 
   handleSubmit = (e: any) => {
+    const { userName, target, sendMessage } = this.props;
+
     e.preventDefault();
     const newMessage = createNewMessage(
       this.state.messageText,
-      this.props.userName,
-      this.props.target
+      userName,
+      target
     );
-    this.props.sendMessage(newMessage);
+    sendMessage(newMessage);
     this.setState({ messageText: "" });
   };
 
@@ -65,7 +65,9 @@ class MessengerContainer extends React.Component<Props, State> {
   render() {
     return (
       <div>
-        <span>Hello, {this.props.userName}! Send a message to {this.props.target}</span>
+        <span>
+          Hello, {this.props.userName}! Send a message to {this.props.target}
+        </span>
         <MessageList userName={this.props.userName} />
         {this.isTargetTyping() ? (
           <Message
