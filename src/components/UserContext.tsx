@@ -1,16 +1,15 @@
 import React from "react";
-import { MessengerContainer } from "./MessengerContainer";
+import MessengerContainer from "./MessengerContainer";
 
-type Props = {};
+type Props = { userName: string, target:string };
 type State = {};
 
 export class UserContext extends React.Component<Props, State> {
-    render() {
-        return (
-            <div className='userContext'>
-                <div>A user</div>
-                <MessengerContainer />
-            </div>
-        );
-    }
+  render() {
+    return (
+      <div className="userContext">
+        <MessengerContainer userName={this.props.userName} target={this.props.target} />
+      </div>
+    );
+  }
 }
